@@ -64,12 +64,13 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        if (str == null)
-            return null;
-        String ret = " ";
+        if (str == null || str.length() == 0)
+            return " ";
+        String ret = "";
         for (int i = 0; i < str.length(); i++) {
             ret += " " + str.charAt(i) ;
         }
+        //ret += str.charAt(str.length() -1);
         return ret;
     }
   
