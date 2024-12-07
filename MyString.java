@@ -65,12 +65,12 @@ public class MyString {
      */
     public static String spacedString(String str) {
         if (str == null || str.length() == 0)
-            return " ";
+            return "";
         String ret = "";
-        for (int i = 0; i < str.length(); i++) {
-            ret += " " + str.charAt(i) ;
+        for (int i = 0; i < str.length() -1; i++) {
+            ret += str.charAt(i) + " " ;
         }
-        //ret += str.charAt(str.length() -1);
+        ret += str.charAt(str.length() -1);
         return ret;
     }
   
