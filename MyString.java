@@ -7,8 +7,8 @@ public class MyString {
         System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
+        System.out.println(subsetOf("pass", "space"));
         System.out.println(subsetOf("sap", "space"));
-        System.out.println(subsetOf("sapt", "space"));
         System.out.println(spacedString(hello));
         System.out.println(randomStringOfLetters(4));
         System.out.println(remove(hello, "lh"));
@@ -50,7 +50,7 @@ public class MyString {
         if (str2 == null)
             return false;
         for (int i = 0; i < str1.length(); i++) 
-            if (countChar(str2, str1.charAt(i)) == 0 )
+            if (countChar(str2, str1.charAt(i)) != countChar(str1, str1.charAt(i)) )
                 return false;
         return true;
     }
@@ -67,10 +67,10 @@ public class MyString {
         if (str == null)
             return null;
         String ret = "";
-        for (int i = 0; i < str.length() -1; i++) {
-            ret += str.charAt(i) + " ";
+        for (int i = 0; i < str.length(); i++) {
+            ret += " " + str.charAt(i) ;
         }
-        ret += str.charAt(str.length() -1);
+        //ret += str.charAt(str.length() -1);
         return ret;
     }
   
@@ -86,7 +86,7 @@ public class MyString {
      */
     public static String randomStringOfLetters(int n) {
         if (n == 0)
-            return null;
+            return "";
         String ret = "";
         for (int i = 0; i < n; i++) 
             ret += (char)((Math.random() * ((int) 'z' - (int) 'a' + 1) + (int) 'a'));
