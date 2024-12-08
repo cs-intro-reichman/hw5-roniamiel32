@@ -99,6 +99,19 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
+			if (input.equals(".")) {
+				break;
+			} else if (!MyString.subsetOf(input, hand)) {
+				System.out.println("Invalid word. Try again.");
+			} else if (!isWordInDictionary(input)) {
+				System.out.println("No such word in the dictionary. Try again.");
+			}  else {
+					score += wordScore(input);
+					System.out.println(input + " earned " + wordScore(input) + " points. "
+					+ "Score: " + score + " points"); 
+					System.out.println();
+					hand = MyString.remove(hand, input);
+			}
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
@@ -121,19 +134,20 @@ public class Scrabble {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
-			//// Replace the following break statement with code
-			//// that completes the game playing loop
+			if (input.equals("n"))
+				playHand(createHand());
+			if (input.equals("e"))
 			break;
 		}
 	}
 
 	public static void main(String[] args) {
-		//// Uncomment the test you want to run
-		////testBuildingTheDictionary();  
-		////testScrabbleScore();    
-		////testCreateHands();  
-		////testPlayHands();
-		////playGame();
+		// Uncomment the test you want to run
+		//testBuildingTheDictionary();  
+		//testScrabbleScore();    
+		//testCreateHands();  
+		//testPlayHands();
+		//playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
