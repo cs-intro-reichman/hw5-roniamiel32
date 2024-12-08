@@ -68,7 +68,7 @@ public class Scrabble {
 		score *= word.length();
 		if (word.length() == HAND_SIZE)
 			score += 50;
-		if (MyString.subsetOf("runi", word))
+		if (MyString.subsetOf(word, "runi"))
 			score += 1000;
 		return score;
 	}
@@ -79,7 +79,7 @@ public class Scrabble {
 	public static String createHand() {
 		String hand = MyString.randomStringOfLetters(HAND_SIZE - 2);
 		hand += 'a' + 'e';
-		return null;
+		return hand;
 	}
 	
     // Runs a single hand in a Scrabble game. Each time the user enters a valid word:
@@ -99,9 +99,10 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
-			//// Replace the following break statement with code
-			//// that completes the hand playing loop
+			if (input == ".")
 			break;
+			score += wordScore(input);
+			hand = MyString.remove(input, hand);
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
