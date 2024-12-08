@@ -100,20 +100,20 @@ public class Scrabble {
 			// end-of-line characters.
 			String input = in.readString();
 
-			if (input.equals(".")) {
+			if (input.equals(".")) 
 				break;
-			} else if (!MyString.subsetOf(input, hand)) {
+			else if (!MyString.subsetOf(input, hand)) 
 				System.out.println("Invalid word. Try again.");
-			} else if (!isWordInDictionary(input)){
+			else if (!isWordInDictionary(input))
 				System.out.println("No such word in the dictionary. Try again.");
-			}  else {
+			else {
 					score += wordScore(input);
 					System.out.println(input + " earned " + wordScore(input) + " points. "
 					+ "Score: " + score + " points"); 
 					System.out.println();
 					hand = MyString.remove(hand, input);
 			}
-			
+
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
