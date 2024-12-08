@@ -103,7 +103,7 @@ public class Scrabble {
 				break;
 			} else if (!MyString.subsetOf(input, hand)) {
 				System.out.println("Invalid word. Try again.");
-			} else if (!isWordInDictionary(input)) {
+			} else if (!isWordInDictionary(input)){
 				System.out.println("No such word in the dictionary. Try again.");
 			}  else {
 					score += wordScore(input);
