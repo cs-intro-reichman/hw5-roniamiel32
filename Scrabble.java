@@ -99,6 +99,7 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
+
 			if (input.equals(".")) {
 				break;
 			} else if (!MyString.subsetOf(input, hand)) {
@@ -112,6 +113,7 @@ public class Scrabble {
 					System.out.println();
 					hand = MyString.remove(hand, input);
 			}
+			
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
