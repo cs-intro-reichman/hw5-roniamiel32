@@ -65,10 +65,11 @@ public class Scrabble {
 		int score = 0;
 		if (word.length() == HAND_SIZE)
 			score += 50;
-		if (MyString.subsetOf(word, "runi"))
+		if (MyString.subsetOf("runi", word))
 			score += 1000;
 		for (int i = 0; i < word.length(); i++) 
 			score += SCRABBLE_LETTER_VALUES[word.charAt(i) - 'a'];
+		score *= word.length();
 		return score;
 	}
 
