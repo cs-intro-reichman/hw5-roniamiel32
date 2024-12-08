@@ -68,7 +68,7 @@ public class Scrabble {
 		score *= word.length();
 		if (word.length() == HAND_SIZE)
 			score += 50;
-		if (MyString.subsetOf(word, "runi"))
+		if (MyString.countChar(word, 'r') > 0 && MyString.countChar(word, 'u') > 0 && MyString.countChar(word, 'n') > 0 && MyString.countChar(word, 'i') > 0)
 			score += 1000;
 		return score;
 	}
