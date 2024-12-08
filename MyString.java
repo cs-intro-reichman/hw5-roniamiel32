@@ -44,16 +44,24 @@ public class MyString {
      * @param str2 - a string
      * @return true is str1 is a subset of str2, false otherwise
      */
-    public static boolean subsetOf(String str1, String str2) {
-        if (str1 == null)
-            return true;
-        if (str2 == null)
+    public static boolean subsetOf(String str1, String str2){
+
+        if (str1.length() > str2.length()){
             return false;
-        for (int i = 0; i < str1.length(); i++) 
-            if (countChar(str2, str1.charAt(i)) != countChar(str1, str1.charAt(i)) )
+        }
+
+        for (int i = 0; i < str1.length(); i++) {
+            char ch = str1.charAt(i);
+            if (str2.indexOf(ch) != -1){
+                str2 = str2.substring(0, str2.indexOf(ch)) + 
+                str2.substring(str2.indexOf(ch) + 1);
+            } else {
                 return false;
+            }
+        }
+
         return true;
-    }
+     }
 
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
