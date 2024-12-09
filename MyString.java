@@ -46,16 +46,13 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
         int[] charFrequency = new int[26];
-
-        for (int i = 0; i < str2.length(); i++) {
+        for (int i = 0; i < str2.length(); i++) 
             charFrequency[str2.charAt(i) - 'a']++;
-        }
-
         for (int i = 0; i < str1.length(); i++) {
-            if (charFrequency[str1.charAt(i) - 'a'] <= 0) return false;
-            charFrequency[str1.charAt(i) - 'a']--;
+            if (charFrequency[str1.charAt(i) - 'a'] <= 0)
+            return false;
+        charFrequency[str1.charAt(i) - 'a']--;
         }
-
         return true;
     }
 
