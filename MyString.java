@@ -45,13 +45,17 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-        if (str1 == null)
-            return true;
-        if (str2 == null)
-            return false;
-        for (int i = 0; i < str1.length(); i++) 
-            if (countChar(str2, str1.charAt(i)) != countChar(str1, str1.charAt(i)) )
-                return false;
+        int[] charFrequency = new int[26];
+
+        for (int i = 0; i < str2.length(); i++) {
+            charFrequency[str2.charAt(i) - 'a']++;
+        }
+
+        for (int i = 0; i < str1.length(); i++) {
+            if (charFrequency[str1.charAt(i) - 'a'] <= 0) return false;
+            charFrequency[str1.charAt(i) - 'a']--;
+        }
+
         return true;
     }
 
